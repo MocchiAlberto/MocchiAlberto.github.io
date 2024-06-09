@@ -3,7 +3,10 @@ import { MindARThree } from 'mindar-image-three';
 import {mockWithVideo} from "./libs/camera-mock";
 
 document.addEventListener('DOMContentLoaded', () => {
-  const start = async() => {
+  const startButton = document.getElementById('startButton');
+
+  startButton.addEventListener('click', async () => {
+    startButton.style.display = 'none'; // Nascondi il pulsante dopo il clic
 
     mockWithVideo("./assets/mock-videos/course-banner1.mp4");
     // initialize MindAR 
@@ -27,6 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
-  }
-  start();
+  });
 });
