@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
-import { mockWithVideo } from './libs/camera-mock.js';
-//dipendenza corretta
+import { mockWithVideo } from './libs/camera-mock';
 
 document.addEventListener('DOMContentLoaded', () => {
   const start = async() => {
