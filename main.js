@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navigator.mediaDevices.getUserMedia = () => {
       return new Promise((resolve, reject) => {
         const video = document.createElement('video');
-        video.setAttribute("src", "../../assets/mock-videos/course-banner1.mp4");
+        video.setAttribute("src", "./assets/mock-videos/course-banner1.mp4");
         video.setAttribute("loop", "");
 
         video.oncanplay = () => {
