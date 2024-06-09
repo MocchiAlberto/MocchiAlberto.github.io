@@ -1,18 +1,16 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
-import {mockWithVideo} from "./libs/camera-mock";
+import { mockWithVideo } from './libs/camera-mock';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const startButton = document.getElementById('startButton');
+  const start = async() => {
 
-  startButton.addEventListener('click', async () => {
-    startButton.style.display = 'none'; // Nascondi il pulsante dopo il clic
+    mockWithVideo('./assets/videos/course-banner1.mp4');
 
-    mockWithVideo("./assets/mock-videos/course-banner1.mp4");
     // initialize MindAR 
     const mindarThree = new MindARThree({
       container: document.body,
-      imageTargetSrc: '../../assets/targets/course-banner.mind',
+      imageTargetSrc: './assets/targets/course-banner.mind',
     });
     const {renderer, scene, camera} = mindarThree;
 
@@ -30,5 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
-  });
+  }
+  start();
 });
