@@ -1,22 +1,11 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-image-three';
+import {mockWithVideo} from "./libs/camera-mock";
 
 document.addEventListener('DOMContentLoaded', () => {
   const start = async() => {
 
-    navigator.mediaDevices.getUserMedia = () => {
-      return new Promise((resolve, reject) => {
-        const video = document.createElement('video');
-        video.setAttribute("src", "./assets/mock-videos/course-banner1.mp4");
-        video.setAttribute("loop", "");
-
-        video.oncanplay = () => {
-          video.play();
-          resolve(video.captureStream());
-        }
-      });
-    }
-
+    mockWithVideo("./assets/mock-videos/course-banner1.mp4");
     // initialize MindAR 
     const mindarThree = new MindARThree({
       container: document.body,
